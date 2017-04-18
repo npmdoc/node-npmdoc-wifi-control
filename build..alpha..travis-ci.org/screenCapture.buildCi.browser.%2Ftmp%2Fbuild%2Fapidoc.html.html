@@ -1,0 +1,1545 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/msolters/wifi-control-node">wifi-control (v2.0.1)</a>
+</h1>
+<h4>Scan for, connect to, and disconnect from WiFi networks on Linux, MacOS and Windows.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.wifi-control">module wifi-control</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.configure">
+            function <span class="apidocSignatureSpan">wifi-control.</span>configure
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.connectToAP">
+            function <span class="apidocSignatureSpan">wifi-control.</span>connectToAP
+            <span class="apidocSignatureSpan">(_ap, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.findInterface">
+            function <span class="apidocSignatureSpan">wifi-control.</span>findInterface
+            <span class="apidocSignatureSpan">(iface)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.getIfaceState">
+            function <span class="apidocSignatureSpan">wifi-control.</span>getIfaceState
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.init">
+            function <span class="apidocSignatureSpan">wifi-control.</span>init
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.resetWiFi">
+            function <span class="apidocSignatureSpan">wifi-control.</span>resetWiFi
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.scanForWiFi">
+            function <span class="apidocSignatureSpan">wifi-control.</span>scanForWiFi
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">wifi-control.</span>darwin</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">wifi-control.</span>linux</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">wifi-control.</span>win32</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.wifi-control.darwin">module wifi-control.darwin</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.darwin.autoFindInterface">
+            function <span class="apidocSignatureSpan">wifi-control.darwin.</span>autoFindInterface
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.darwin.connectToAP">
+            function <span class="apidocSignatureSpan">wifi-control.darwin.</span>connectToAP
+            <span class="apidocSignatureSpan">(_ap)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.darwin.getIfaceState">
+            function <span class="apidocSignatureSpan">wifi-control.darwin.</span>getIfaceState
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.darwin.resetWiFi">
+            function <span class="apidocSignatureSpan">wifi-control.darwin.</span>resetWiFi
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.wifi-control.linux">module wifi-control.linux</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.linux.autoFindInterface">
+            function <span class="apidocSignatureSpan">wifi-control.linux.</span>autoFindInterface
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.linux.connectToAP">
+            function <span class="apidocSignatureSpan">wifi-control.linux.</span>connectToAP
+            <span class="apidocSignatureSpan">(_ap)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.linux.getIfaceState">
+            function <span class="apidocSignatureSpan">wifi-control.linux.</span>getIfaceState
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.linux.resetWiFi">
+            function <span class="apidocSignatureSpan">wifi-control.linux.</span>resetWiFi
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.linux.scanForWiFi">
+            function <span class="apidocSignatureSpan">wifi-control.linux.</span>scanForWiFi
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.wifi-control.win32">module wifi-control.win32</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.win32.autoFindInterface">
+            function <span class="apidocSignatureSpan">wifi-control.win32.</span>autoFindInterface
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.win32.connectToAP">
+            function <span class="apidocSignatureSpan">wifi-control.win32.</span>connectToAP
+            <span class="apidocSignatureSpan">(_ap)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.win32.getIfaceState">
+            function <span class="apidocSignatureSpan">wifi-control.win32.</span>getIfaceState
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.wifi-control.win32.resetWiFi">
+            function <span class="apidocSignatureSpan">wifi-control.win32.</span>resetWiFi
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.wifi-control" id="apidoc.module.wifi-control">module wifi-control</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.configure" id="apidoc.element.wifi-control.configure">
+        function <span class="apidocSignatureSpan">wifi-control.</span>configure
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">configure = function (settings) {
+  if (settings == null) {
+    settings = {};
+  }
+  if (settings.debug != null) {
+    CXT.WiFiControlSettings.debug = settings.debug;
+    CXT.WiFiLog("Debug mode set to: " + settings.debug);
+  }
+  if (settings.connectionTimeout != null) {
+    settings.connectionTimeout = parseInt(settings.connectionTimeout);
+    CXT.WiFiControlSettings.connectionTimeout = settings.connectionTimeout;
+    CXT.WiFiLog("AP connection attempt timeout set to: " + settings.connectionTimeout + "ms");
+  }
+  if (settings.iface != null) {
+    return this.findInterface(settings.iface);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+**A Note About Synchronicity** (*Synchronicity!*)
+
+Some `WiFiControl` methods are synchronous, some are not.
+
+Synchronous
+---
+* `WiFiControl.init( settings )`
+* `WiFiControl.<span class="apidocCodeKeywordSpan">configure</span>( settings )`
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.getIfaceState()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.connectToAP( ap, callback )` - this can sometimes take several minutes so we use a callback to report on how it
+went.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.connectToAP" id="apidoc.element.wifi-control.connectToAP">
+        function <span class="apidocSignatureSpan">wifi-control.</span>connectToAP
+        <span class="apidocSignatureSpan">(_ap, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connectToAP = function (_ap, cb) {
+  var _msg, check_iface, error, request_msg, t0;
+  if (CXT.WiFiControlSettings.iface == null) {
+    _msg = "You cannot connect to a WiFi network without a valid wireless interface.";
+    CXT.WiFiLog(_msg, true);
+    return {
+      success: false,
+      msg: _msg
+    };
+  }
+  try {
+    if (!_ap.ssid.length) {
+      return {
+        success: false,
+        msg: "Please provide a non-empty SSID."
+      };
+    }
+    if (_ap.password == null) {
+      _ap.password = "";
+    }
+    os_instructions.connectToAP.call(CXT, _ap);
+    request_msg = "WiFi connection request to \"" + _ap.ssid + "\" has been processed.";
+    CXT.WiFiLog(request_msg);
+    t0 = new Date();
+    check_iface = (function(_this) {
+      return function(_ap, cb) {
+        var connect_to_ap_result, ifaceState;
+        ifaceState = _this.getIfaceState();
+        if (ifaceState.success &amp;&amp; ((ifaceState.connection === "connected") || (ifaceState.connection === "disconnected"))) {
+          if (ifaceState.ssid === _ap.ssid) {
+            _msg = "Successfully connected to \"" + _ap.ssid + "\"";
+            CXT.WiFiLog(_msg);
+            cb(null, {
+              success: true,
+              msg: _msg
+            });
+          } else if (ifaceState.ssid == null) {
+            _msg = "Error: Interface is not currently connected to any wireless AP.";
+            CXT.WiFiLog(_msg, true);
+            cb(_msg, {
+              success: false,
+              msg: "Error: Could not connect to " + _ap.ssid
+            });
+          } else {
+            _msg = "Error: Interface is currently connected to \"" + ifaceState.ssid + "\"";
+            CXT.WiFiLog(_msg, true);
+            connect_to_ap_result = {
+              success: false,
+              msg: _msg
+            };
+            cb(_msg, {
+              success: false,
+              msg: "Error: Could not connect to " + _ap.ssid
+            });
+          }
+          return;
+        }
+        if ((new Date() - t0) &lt; CXT.WiFiControlSettings.connectionTimeout) {
+          return setTimeout(function() {
+            return check_iface(_ap, cb);
+          }, 250);
+        } else {
+          return cb("Connection confirmation timed out. (" + CXT.WiFiControlSettings.connectionTimeout + "ms)", {
+            success: false,
+            msg: "Error: Could not connect to " + _ap.ssid
+          });
+        }
+      };
+    })(this);
+    return check_iface(_ap, cb);
+  } catch (error1) {
+    error = error1;
+    _msg = "Encountered an error while connecting to \"" + _ap.ssid + "\": " + error;
+    CXT.WiFiLog(_msg, true);
+    return cb(error, {
+      success: false,
+      msg: _msg
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `WiFiControl.configure( settings )`
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.getIfaceState()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.<span class="apidocCodeKeywordSpan">connectToAP</span>( ap, callback )` - this can sometimes take several minutes
+ so we use a callback to report on how it went.
+*  `WiFiControl.resetWiFi( callback )` - powering down and back up can sometimes take a while, depending on your wireless card,
+so this method will return your callback when it is complete.
+
+---
+
+##  Initialize
+```
+WiFiControl.init( settings );
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.findInterface" id="apidoc.element.wifi-control.findInterface">
+        function <span class="apidocSignatureSpan">wifi-control.</span>findInterface
+        <span class="apidocSignatureSpan">(iface)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findInterface = function (iface) {
+  var _msg, error, interfaceResults;
+  if (iface == null) {
+    iface = null;
+  }
+  try {
+    if (iface != null) {
+      _msg = "Wireless interface manually set to " + iface + ".";
+      CXT.WiFiLog(_msg);
+      CXT.WiFiControlSettings.iface = iface;
+      return {
+        success: true,
+        msg: _msg,
+        "interface": iface
+      };
+    }
+    CXT.WiFiLog("Determining system wireless interface...");
+    interfaceResults = os_instructions.autoFindInterface.call(CXT);
+    CXT.WiFiControlSettings.iface = interfaceResults["interface"];
+    return interfaceResults;
+  } catch (error1) {
+    error = error1;
+    _msg = "Encountered an error while searching for wireless interface: " + error;
+    CXT.WiFiLog(_msg, true);
+    return {
+      success: false,
+      msg: _msg
+    };
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Some `WiFiControl` methods are synchronous, some are not.
+
+Synchronous
+---
+* `WiFiControl.init( settings )`
+* `WiFiControl.configure( settings )`
+* `WiFiControl.<span class="apidocCodeKeywordSpan">findInterface</span>( iface )`
+* `WiFiControl.getIfaceState()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.connectToAP( ap, callback )` - this can sometimes take several minutes so we use a callback to report on how it
+went.
+*  `WiFiControl.resetWiFi( callback )` - powering down and back up can sometimes take a while, depending on your wireless card,
+so this method will return your callback when it is complete.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.getIfaceState" id="apidoc.element.wifi-control.getIfaceState">
+        function <span class="apidocSignatureSpan">wifi-control.</span>getIfaceState
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getIfaceState = function () {
+  var _msg, error, interfaceState;
+  try {
+    interfaceState = os_instructions.getIfaceState.call(CXT);
+    if (interfaceState.success !== false) {
+      interfaceState.success = true;
+      interfaceState.msg = "Successfully acquired state of network interface " + CXT.WiFiControlSettings.iface + ".";
+    }
+    return interfaceState;
+  } catch (error1) {
+    error = error1;
+    _msg = "Encountered an error while acquiring network interface connection state: " + error;
+    CXT.WiFiLog(_msg, true);
+    return {
+      success: false,
+      msg: _msg
+    };
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Some `WiFiControl` methods are synchronous, some are not.
+
+Synchronous
+---
+* `WiFiControl.init( settings )`
+* `WiFiControl.configure( settings )`
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.<span class="apidocCodeKeywordSpan">getIfaceState</span>()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.connectToAP( ap, callback )` - this can sometimes take several minutes so we use a callback to report on how it
+went.
+*  `WiFiControl.resetWiFi( callback )` - powering down and back up can sometimes take a while, depending on your wireless card,
+so this method will return your callback when it is complete.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.init" id="apidoc.element.wifi-control.init">
+        function <span class="apidocSignatureSpan">wifi-control.</span>init
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (settings) {
+  if (settings == null) {
+    settings = {};
+  }
+  this.configure(settings);
+  if (settings.iface == null) {
+    return this.findInterface(settings.iface);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Example:
+
+```js
+var WiFiControl = require('wifi-control');
+
+//  Initialize wifi-control package with verbose output
+WiFiControl.<span class="apidocCodeKeywordSpan">init</span>({
+  debug: true
+});
+
+//  Try scanning for access points:
+WiFiControl.scanForWiFi( function(err, response) {
+  if (err) console.log(err);
+  console.log(response);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.resetWiFi" id="apidoc.element.wifi-control.resetWiFi">
+        function <span class="apidocSignatureSpan">wifi-control.</span>resetWiFi
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resetWiFi = function (cb) {
+  var _msg, check_iface, error, t0;
+  try {
+    os_instructions.resetWiFi.call(CXT);
+    CXT.WiFiLog("Waiting for interface to finish resetting...");
+    t0 = new Date();
+    check_iface = (function(_this) {
+      return function(cb) {
+        var _msg, ifaceState;
+        ifaceState = _this.getIfaceState();
+        if (ifaceState.success &amp;&amp; ((ifaceState.connection === "connected") || (ifaceState.connection === "disconnected"))) {
+          _msg = "Success!  Wireless interface is now reset.";
+          cb(null, {
+            success: true,
+            msg: _msg
+          });
+          return;
+        }
+        if ((new Date() - t0) &lt; CXT.WiFiControlSettings.connectionTimeout) {
+          return setTimeout(function() {
+            return check_iface(cb);
+          }, 250);
+        } else {
+          return cb("Reset confirmation timed out. (" + CXT.WiFiControlSettings.connectionTimeout + "ms)", {
+            success: false,
+            msg: "Error: Could not completely reset WiFi."
+          });
+        }
+      };
+    })(this);
+    return check_iface(cb);
+  } catch (error1) {
+    error = error1;
+    _msg = "Encountered an error while resetting wireless interface: " + error;
+    CXT.WiFiLog(_msg, true);
+    return cb(error, {
+      success: false,
+      msg: _msg
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.getIfaceState()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.connectToAP( ap, callback )` - this can sometimes take several minutes so we use a callback to report on how it
+went.
+*  `WiFiControl.<span class="apidocCodeKeywordSpan">resetWiFi</span>( callback )` - powering down and back up can sometimes take
+ a while, depending on your wireless card, so this method will return your callback when it is complete.
+
+---
+
+##  Initialize
+```
+  WiFiControl.init( settings );
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.scanForWiFi" id="apidoc.element.wifi-control.scanForWiFi">
+        function <span class="apidocSignatureSpan">wifi-control.</span>scanForWiFi
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scanForWiFi = function (cb) {
+  var _msg, error, networks;
+  if (CXT.WiFiControlSettings.iface == null) {
+    _msg = "You cannot scan for nearby WiFi networks without a valid wireless interface.";
+    CXT.WiFiLog(_msg, true);
+    return {
+      success: false,
+      msg: _msg
+    };
+  }
+  try {
+    CXT.WiFiLog("Scanning for nearby WiFi Access Points...");
+    if (process.platform === "linux") {
+      networks = os_instructions.scanForWiFi.apply(CXT);
+      _msg = "Nearby WiFi APs successfully scanned (" + networks.length + " found).";
+      CXT.WiFiLog(_msg);
+      return cb(null, {
+        success: true,
+        msg: _msg,
+        networks: networks
+      });
+    } else {
+      return WiFiScanner.scan(function(err, networks) {
+        if (err) {
+          _msg = "We encountered an error while scanning for WiFi APs: " + error;
+          CXT.WiFiLog(_msg, true);
+          return cb(err, {
+            success: false,
+            msg: _msg
+          });
+        } else {
+          _msg = "Nearby WiFi APs successfully scanned (" + networks.length + " found).";
+          CXT.WiFiLog(_msg);
+          return cb(null, {
+            success: true,
+            networks: networks,
+            msg: _msg
+          });
+        }
+      });
+    }
+  } catch (error1) {
+    error = error1;
+    _msg = "We encountered an error while scanning for WiFi APs: " + error;
+    CXT.WiFiLog(_msg, true);
+    return cb(error, {
+      success: false,
+      msg: _msg
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  //  Initialize wifi-control package with verbose output
+  WiFiControl.init({
+    debug: true
+  });
+
+  //  Try scanning for access points:
+  WiFiControl.<span class="apidocCodeKeywordSpan">scanForWiFi</span>( function(err, response) {
+    if (err) console.log(err);
+    console.log(response);
+  });
+```
+
+Example Output:
+```js
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.wifi-control.darwin" id="apidoc.module.wifi-control.darwin">module wifi-control.darwin</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.darwin.autoFindInterface" id="apidoc.element.wifi-control.darwin.autoFindInterface">
+        function <span class="apidocSignatureSpan">wifi-control.darwin.</span>autoFindInterface
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">autoFindInterface = function () {
+  var _iface, _interface, _msg, findInterfaceCom;
+  this.WiFiLog("Host machine is MacOS.");
+  findInterfaceCom = "networksetup -listallhardwareports | awk '/^Hardware Port: (Wi-Fi|AirPort)$/{getline;print $2}'";
+  this.WiFiLog("Executing: " + findInterfaceCom);
+  _interface = this.execSync(findInterfaceCom);
+  if (_interface) {
+    _iface = _interface.trim();
+    _msg = "Automatically located wireless interface " + _iface + ".";
+    this.WiFiLog(_msg);
+    return {
+      success: true,
+      msg: _msg,
+      "interface": _iface
+    };
+  } else {
+    _msg = "Error: No network interface found.";
+    this.WiFiLog(_msg, true);
+    return {
+      success: false,
+      msg: _msg,
+      "interface": null
+    };
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.darwin.connectToAP" id="apidoc.element.wifi-control.darwin.connectToAP">
+        function <span class="apidocSignatureSpan">wifi-control.darwin.</span>connectToAP
+        <span class="apidocSignatureSpan">(_ap)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connectToAP = function (_ap) {
+  var COMMANDS, _msg, com, connectToAPChain, error, i, len, stdout;
+  COMMANDS = {
+    connect: "networksetup -setairportnetwork " + this.WiFiControlSettings.iface + " \"" + _ap.ssid + "\""
+  };
+  if (_ap.password.length) {
+    COMMANDS.connect += " \"" + _ap.password + "\"";
+  }
+  connectToAPChain = ["connect"];
+  for (i = 0, len = connectToAPChain.length; i &lt; len; i++) {
+    com = connectToAPChain[i];
+    this.WiFiLog("Executing:\t" + COMMANDS[com]);
+    try {
+      stdout = this.execSync(COMMANDS[com]);
+    } catch (error1) {
+      error = error1;
+    }
+    if (stdout === ("Could not find network " + _ap.ssid + ".")) {
+      _msg = "Error: No network called " + _ap.ssid + " could be found.";
+      this.WiFiLog(_msg, true);
+      return {
+        success: false,
+        msg: _msg
+      };
+    }
+    this.WiFiLog("Success!");
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `WiFiControl.configure( settings )`
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.getIfaceState()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.<span class="apidocCodeKeywordSpan">connectToAP</span>( ap, callback )` - this can sometimes take several minutes
+ so we use a callback to report on how it went.
+*  `WiFiControl.resetWiFi( callback )` - powering down and back up can sometimes take a while, depending on your wireless card,
+so this method will return your callback when it is complete.
+
+---
+
+##  Initialize
+```
+WiFiControl.init( settings );
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.darwin.getIfaceState" id="apidoc.element.wifi-control.darwin.getIfaceState">
+        function <span class="apidocSignatureSpan">wifi-control.darwin.</span>getIfaceState
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getIfaceState = function () {
+  var KEY, VALUE, connectionData, error, i, interfaceState, k, len, ln, parsedLine, powerData, ref;
+  interfaceState = {};
+  connectionData = this.execSync(AirPortBinary + " -I");
+  ref = connectionData.split('\n');
+  for (k = i = 0, len = ref.length; i &lt; len; k = ++i) {
+    ln = ref[k];
+    try {
+      parsedLine = parsePatterns.airport_line.exec(ln.trim());
+      KEY = parsedLine[1];
+      VALUE = parsedLine[2];
+    } catch (error1) {
+      error = error1;
+      continue;
+    }
+    switch (KEY) {
+      case "state":
+        interfaceState.connection = connectionStateMap[VALUE];
+        break;
+      case "SSID":
+        interfaceState.ssid = VALUE;
+    }
+    if (KEY === "SSID") {
+      break;
+    }
+  }
+  powerData = this.execSync("networksetup -getairportpower " + this.WiFiControlSettings.iface);
+  try {
+    parsedLine = parsePatterns.airport_line.exec(powerData.trim());
+    KEY = parsedLine[1];
+    VALUE = parsedLine[2];
+  } catch (error1) {
+    error = error1;
+    return {
+      success: false,
+      msg: "Unable to retrieve state of network interface " + this.WiFiControlSettings.iface + "."
+    };
+  }
+  interfaceState.power = powerStateMap[VALUE];
+  return interfaceState;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Some `WiFiControl` methods are synchronous, some are not.
+
+Synchronous
+---
+* `WiFiControl.init( settings )`
+* `WiFiControl.configure( settings )`
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.<span class="apidocCodeKeywordSpan">getIfaceState</span>()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.connectToAP( ap, callback )` - this can sometimes take several minutes so we use a callback to report on how it
+went.
+*  `WiFiControl.resetWiFi( callback )` - powering down and back up can sometimes take a while, depending on your wireless card,
+so this method will return your callback when it is complete.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.darwin.resetWiFi" id="apidoc.element.wifi-control.darwin.resetWiFi">
+        function <span class="apidocSignatureSpan">wifi-control.darwin.</span>resetWiFi
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resetWiFi = function () {
+  var COMMANDS, _msg, com, i, len, resetWiFiChain, results, stdout;
+  COMMANDS = {
+    enableAirport: "networksetup -setairportpower " + this.WiFiControlSettings.iface + " on",
+    disableAirport: "networksetup -setairportpower " + this.WiFiControlSettings.iface + " off"
+  };
+  resetWiFiChain = ["disableAirport", "enableAirport"];
+  results = [];
+  for (i = 0, len = resetWiFiChain.length; i &lt; len; i++) {
+    com = resetWiFiChain[i];
+    this.WiFiLog("Executing:\t" + COMMANDS[com]);
+    stdout = this.execSync(COMMANDS[com]);
+    _msg = "Success!";
+    results.push(this.WiFiLog(_msg));
+  }
+  return results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.getIfaceState()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.connectToAP( ap, callback )` - this can sometimes take several minutes so we use a callback to report on how it
+went.
+*  `WiFiControl.<span class="apidocCodeKeywordSpan">resetWiFi</span>( callback )` - powering down and back up can sometimes take
+ a while, depending on your wireless card, so this method will return your callback when it is complete.
+
+---
+
+##  Initialize
+```
+  WiFiControl.init( settings );
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.wifi-control.linux" id="apidoc.module.wifi-control.linux">module wifi-control.linux</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.linux.autoFindInterface" id="apidoc.element.wifi-control.linux.autoFindInterface">
+        function <span class="apidocSignatureSpan">wifi-control.linux.</span>autoFindInterface
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">autoFindInterface = function () {
+  var _iface, _interface, _interfaceLine, _msg, findInterfaceCom, parsedLine;
+  this.WiFiLog("Host machine is Linux.");
+  findInterfaceCom = "nmcli -m multiline device status | grep wlan";
+  this.WiFiLog("Executing: " + findInterfaceCom);
+  _interfaceLine = this.execSync(findInterfaceCom);
+  parsedLine = parsePatterns.nmcli_line.exec(_interfaceLine.trim());
+  _interface = parsedLine[2];
+  if (_interface) {
+    _iface = _interface.trim();
+    _msg = "Automatically located wireless interface " + _iface + ".";
+    this.WiFiLog(_msg);
+    return {
+      success: true,
+      msg: _msg,
+      "interface": _iface
+    };
+  } else {
+    _msg = "Error: No network interface found.";
+    this.WiFiLog(_msg, true);
+    return {
+      success: false,
+      msg: _msg,
+      "interface": null
+    };
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.linux.connectToAP" id="apidoc.element.wifi-control.linux.connectToAP">
+        function <span class="apidocSignatureSpan">wifi-control.linux.</span>connectToAP
+        <span class="apidocSignatureSpan">(_ap)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connectToAP = function (_ap) {
+  var COMMANDS, _msg, com, connectToAPChain, error, i, len, ssidExist, stdout;
+  COMMANDS = {
+    "delete": "nmcli connection delete \"" + _ap.ssid + "\"",
+    connect: "nmcli device wifi connect \"" + _ap.ssid + "\""
+  };
+  if (_ap.password.length) {
+    COMMANDS.connect += " password \"" + _ap.password + "\"";
+  }
+  try {
+    stdout = this.execSync("nmcli connection show \"" + _ap.ssid + "\"");
+    if (stdout.length) {
+      ssidExist = true;
+    }
+  } catch (error1) {
+    error = error1;
+    ssidExist = false;
+  }
+  connectToAPChain = [];
+  if (ssidExist) {
+    this.WiFiLog("It appears there is already a connection for this SSID.");
+    connectToAPChain.push("delete");
+  }
+  connectToAPChain.push("connect");
+  for (i = 0, len = connectToAPChain.length; i &lt; len; i++) {
+    com = connectToAPChain[i];
+    this.WiFiLog("Executing:\t" + COMMANDS[com]);
+    try {
+      stdout = this.execSync(COMMANDS[com]);
+    } catch (error1) {
+      error = error1;
+      if (error.stderr.toString().trim() === ("Error: No network with SSID '" + _ap.ssid + "' found.")) {
+        _msg = "Error: No network called " + _ap.ssid + " could be found.";
+        this.WiFiLog(_msg, true);
+        return {
+          success: false,
+          msg: _msg
+        };
+      } else if (error.stderr.toString().search(/Error:/ !== -1)) {
+        _msg = error.stderr.toString().trim();
+        this.WiFiLog(_msg, true);
+        return {
+          success: false,
+          msg: _msg
+        };
+      }
+      if (!/nmcli device wifi connect/.test(COMMANDS[com])) {
+        this.WiFiLog(error, true);
+        return {
+          success: false,
+          msg: error
+        };
+      }
+    }
+    this.WiFiLog("Success!");
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `WiFiControl.configure( settings )`
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.getIfaceState()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.<span class="apidocCodeKeywordSpan">connectToAP</span>( ap, callback )` - this can sometimes take several minutes
+ so we use a callback to report on how it went.
+*  `WiFiControl.resetWiFi( callback )` - powering down and back up can sometimes take a while, depending on your wireless card,
+so this method will return your callback when it is complete.
+
+---
+
+##  Initialize
+```
+WiFiControl.init( settings );
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.linux.getIfaceState" id="apidoc.element.wifi-control.linux.getIfaceState">
+        function <span class="apidocSignatureSpan">wifi-control.linux.</span>getIfaceState
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getIfaceState = function () {
+  var KEY, VALUE, connectionData, connectionName, error, foundInterface, i, interfaceState, k, len, ln, parsedLine, powerData, ref
+, ssidData;
+  interfaceState = {};
+  powerData = this.execSync("nmcli networking");
+  interfaceState.power = powerStateMap[powerData.trim()];
+  if (interfaceState.power) {
+    foundInterface = false;
+    connectionData = this.execSync("nmcli -m multiline device status");
+    connectionName = null;
+    ref = connectionData.split('\n');
+    for (k = i = 0, len = ref.length; i &lt; len; k = ++i) {
+      ln = ref[k];
+      try {
+        parsedLine = parsePatterns.nmcli_line.exec(ln.trim());
+        KEY = parsedLine[1];
+        VALUE = parsedLine[2];
+        if (VALUE === "--") {
+          VALUE = null;
+        }
+      } catch (error1) {
+        error = error1;
+        continue;
+      }
+      switch (KEY) {
+        case "DEVICE":
+          if (VALUE === this.WiFiControlSettings.iface) {
+            foundInterface = true;
+          }
+          break;
+        case "STATE":
+          if (foundInterface) {
+            interfaceState.connection = connectionStateMap[VALUE];
+          }
+          break;
+        case "CONNECTION":
+          if (foundInterface) {
+            connectionName = VALUE;
+          }
+      }
+      if (KEY === "CONNECTION" &amp;&amp; foundInterface) {
+        break;
+      }
+    }
+    if (!foundInterface) {
+      return {
+        success: false,
+        msg: "Unable to retrieve state of network interface " + this.WiFiControlSettings.iface + "."
+      };
+    }
+    if (connectionName) {
+      try {
+        ssidData = this.execSync("nmcli -m multiline connection show \"" + connectionName + "\" | grep 802-11-wireless.ssid");
+        parsedLine = parsePatterns.nmcli_line.exec(ssidData.trim());
+        interfaceState.ssid = parsedLine[2];
+      } catch (error1) {
+        error = error1;
+        return {
+          success: false,
+          msg: "Error while retrieving SSID information of network interface " + this.WiFiControlSettings.iface + ": " + error.stderr
+        };
+      }
+    } else {
+      interfaceState.ssid = null;
+    }
+  } else {
+    interfaceState.connection = connectionStateMap[VALUE];
+    interfaceState.ssid = null;
+  }
+  return interfaceState;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Some `WiFiControl` methods are synchronous, some are not.
+
+Synchronous
+---
+* `WiFiControl.init( settings )`
+* `WiFiControl.configure( settings )`
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.<span class="apidocCodeKeywordSpan">getIfaceState</span>()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.connectToAP( ap, callback )` - this can sometimes take several minutes so we use a callback to report on how it
+went.
+*  `WiFiControl.resetWiFi( callback )` - powering down and back up can sometimes take a while, depending on your wireless card,
+so this method will return your callback when it is complete.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.linux.resetWiFi" id="apidoc.element.wifi-control.linux.resetWiFi">
+        function <span class="apidocSignatureSpan">wifi-control.linux.</span>resetWiFi
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resetWiFi = function () {
+  var COMMANDS, _msg, com, i, len, resetWiFiChain, results, stdout;
+  COMMANDS = {
+    disableNetworking: "nmcli networking off",
+    enableNetworking: "nmcli networking on"
+  };
+  resetWiFiChain = ["disableNetworking", "enableNetworking"];
+  results = [];
+  for (i = 0, len = resetWiFiChain.length; i &lt; len; i++) {
+    com = resetWiFiChain[i];
+    this.WiFiLog("Executing:\t" + COMMANDS[com]);
+    stdout = this.execSync(COMMANDS[com]);
+    _msg = "Success!";
+    results.push(this.WiFiLog(_msg));
+  }
+  return results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.getIfaceState()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.connectToAP( ap, callback )` - this can sometimes take several minutes so we use a callback to report on how it
+went.
+*  `WiFiControl.<span class="apidocCodeKeywordSpan">resetWiFi</span>( callback )` - powering down and back up can sometimes take
+ a while, depending on your wireless card, so this method will return your callback when it is complete.
+
+---
+
+##  Initialize
+```
+  WiFiControl.init( settings );
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.linux.scanForWiFi" id="apidoc.element.wifi-control.linux.scanForWiFi">
+        function <span class="apidocSignatureSpan">wifi-control.linux.</span>scanForWiFi
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scanForWiFi = function () {
+  var KEY, VALUE, _network, c, error, i, j, k, len, len1, ln, networks, nwk, parsedLine, ref, ref1, scanResults;
+  scanResults = this.execSync("nmcli -m multiline device wifi list ifname " + this.WiFiControlSettings.iface);
+  networks = [];
+  ref = scanResults.split('*:');
+  for (c = i = 0, len = ref.length; i &lt; len; c = ++i) {
+    nwk = ref[c];
+    if (c === 0) {
+      continue;
+    }
+    _network = {};
+    ref1 = nwk.split('\n');
+    for (k = j = 0, len1 = ref1.length; j &lt; len1; k = ++j) {
+      ln = ref1[k];
+      try {
+        parsedLine = parsePatterns.nmcli_line.exec(ln.trim());
+        KEY = parsedLine[1];
+        VALUE = parsedLine[2];
+      } catch (error1) {
+        error = error1;
+        continue;
+      }
+      switch (KEY) {
+        case "SSID":
+          _network.ssid = String(VALUE);
+          break;
+        case "CHAN":
+          _network.channel = String(VALUE);
+          break;
+        case "SIGNAL":
+          _network.signal_level = String(VALUE);
+          break;
+        case "SECURITY":
+          _network.security = String(VALUE);
+      }
+    }
+    if (_network.ssid !== "--") {
+      networks.push(_network);
+    }
+  }
+  return networks;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  //  Initialize wifi-control package with verbose output
+  WiFiControl.init({
+    debug: true
+  });
+
+  //  Try scanning for access points:
+  WiFiControl.<span class="apidocCodeKeywordSpan">scanForWiFi</span>( function(err, response) {
+    if (err) console.log(err);
+    console.log(response);
+  });
+```
+
+Example Output:
+```js
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.wifi-control.win32" id="apidoc.module.wifi-control.win32">module wifi-control.win32</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.win32.autoFindInterface" id="apidoc.element.wifi-control.win32.autoFindInterface">
+        function <span class="apidocSignatureSpan">wifi-control.win32.</span>autoFindInterface
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">autoFindInterface = function () {
+  var _iface, _interface, _msg, findInterfaceCom;
+  this.WiFiLog("Host machine is Windows.");
+  findInterfaceCom = "echo wlan";
+  this.WiFiLog("Executing: " + findInterfaceCom);
+  _interface = this.execSync(findInterfaceCom);
+  if (_interface) {
+    _iface = _interface.trim();
+    _msg = "Automatically located wireless interface " + _iface + ".";
+    this.WiFiLog(_msg);
+    return {
+      success: true,
+      msg: _msg,
+      "interface": _iface
+    };
+  } else {
+    _msg = "Error: No network interface found.";
+    this.WiFiLog(_msg, true);
+    return {
+      success: false,
+      msg: _msg,
+      "interface": null
+    };
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.win32.connectToAP" id="apidoc.element.wifi-control.win32.connectToAP">
+        function <span class="apidocSignatureSpan">wifi-control.win32.</span>connectToAP
+        <span class="apidocSignatureSpan">(_ap)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connectToAP = function (_ap) {
+  var COMMANDS, _msg, com, connectToAPChain, error, i, j, l, len, ref, ssid, stdout, xmlContent;
+  this.WiFiLog("Generating win32 wireless profile...");
+  ssid = {
+    plaintext: _ap.ssid,
+    hex: ""
+  };
+  for (i = j = 0, ref = ssid.plaintext.length - 1; 0 &lt;= ref ? j &lt;= ref : j &gt;= ref; i = 0 &lt;= ref ? ++j : --j) {
+    ssid.hex += ssid.plaintext.charCodeAt(i).toString(16);
+  }
+  xmlContent = null;
+  if (_ap.password.length) {
+    xmlContent = win32WirelessProfileBuilder(ssid, "wpa2", _ap.password);
+  } else {
+    xmlContent = win32WirelessProfileBuilder(ssid);
+  }
+  try {
+    fs.writeFileSync(_ap.ssid + ".xml", xmlContent);
+  } catch (error1) {
+    error = error1;
+    _msg = "Encountered an error connecting to AP: " + error;
+    this.WiFiLog(_msg, true);
+    return {
+      success: false,
+      msg: _msg
+    };
+  }
+  COMMANDS = {
+    loadProfile: "netsh " + this.WiFiControlSettings.iface + " add profile filename=\"" + _ap.ssid + ".xml\"",
+    connect: "netsh " + this.WiFiControlSettings.iface + " connect ssid=\"" + _ap.ssid + "\" name=\"" + _ap.ssid + "\""
+  };
+  connectToAPChain = ["loadProfile", "connect"];
+  for (l = 0, len = connectToAPChain.length; l &lt; len; l++) {
+    com = connectToAPChain[l];
+    this.WiFiLog("Executing:\t" + COMMANDS[com]);
+    try {
+      stdout = this.execSync(COMMANDS[com]);
+    } catch (error1) {
+      error = error1;
+    }
+    this.WiFiLog("Success!");
+  }
+  this.WiFiLog("Removing temporary WiFi config file...");
+  return this.execSync("del \".\\" + _ap.ssid + ".xml\"");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `WiFiControl.configure( settings )`
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.getIfaceState()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.<span class="apidocCodeKeywordSpan">connectToAP</span>( ap, callback )` - this can sometimes take several minutes
+ so we use a callback to report on how it went.
+*  `WiFiControl.resetWiFi( callback )` - powering down and back up can sometimes take a while, depending on your wireless card,
+so this method will return your callback when it is complete.
+
+---
+
+##  Initialize
+```
+WiFiControl.init( settings );
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.win32.getIfaceState" id="apidoc.element.wifi-control.win32.getIfaceState">
+        function <span class="apidocSignatureSpan">wifi-control.win32.</span>getIfaceState
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getIfaceState = function () {
+  var KEY, VALUE, connectionData, error, interfaceState, j, k, len, ln, ln_trim, parsedLine, ref;
+  interfaceState = {};
+  connectionData = this.execSync("netsh " + this.WiFiControlSettings.iface + " show interface");
+  ref = connectionData.split('\n');
+  for (k = j = 0, len = ref.length; j &lt; len; k = ++j) {
+    ln = ref[k];
+    try {
+      ln_trim = ln.trim();
+      if (ln_trim === "Software Off") {
+        interfaceState = {
+          ssid: null,
+          connected: false,
+          power: false
+        };
+        break;
+      } else {
+        parsedLine = parsePatterns.netsh_line.exec(ln_trim);
+        KEY = parsedLine[1].trim();
+        VALUE = parsedLine[2].trim();
+      }
+    } catch (error1) {
+      error = error1;
+      continue;
+    }
+    interfaceState.power = true;
+    switch (KEY) {
+      case "State":
+        interfaceState.connection = connectionStateMap[VALUE];
+        break;
+      case "SSID":
+        interfaceState.ssid = VALUE;
+        break;
+      case "Radio status":
+        if (VALUE === "Hardware Off") {
+          interfaceState = {
+            ssid: null,
+            connected: false,
+            power: false
+          };
+          break;
+        }
+    }
+    if (KEY === "SSID") {
+      break;
+    }
+  }
+  return interfaceState;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Some `WiFiControl` methods are synchronous, some are not.
+
+Synchronous
+---
+* `WiFiControl.init( settings )`
+* `WiFiControl.configure( settings )`
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.<span class="apidocCodeKeywordSpan">getIfaceState</span>()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.connectToAP( ap, callback )` - this can sometimes take several minutes so we use a callback to report on how it
+went.
+*  `WiFiControl.resetWiFi( callback )` - powering down and back up can sometimes take a while, depending on your wireless card,
+so this method will return your callback when it is complete.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.wifi-control.win32.resetWiFi" id="apidoc.element.wifi-control.win32.resetWiFi">
+        function <span class="apidocSignatureSpan">wifi-control.win32.</span>resetWiFi
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resetWiFi = function () {
+  var COMMANDS, _msg, com, j, len, resetWiFiChain, results, stdout;
+  COMMANDS = {
+    disconnect: "netsh " + this.WiFiControlSettings.iface + " disconnect"
+  };
+  resetWiFiChain = ["disconnect"];
+  results = [];
+  for (j = 0, len = resetWiFiChain.length; j &lt; len; j++) {
+    com = resetWiFiChain[j];
+    this.WiFiLog("Executing:\t" + COMMANDS[com]);
+    stdout = this.execSync(COMMANDS[com]);
+    _msg = "Success!";
+    results.push(this.WiFiLog(_msg));
+  }
+  return results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `WiFiControl.findInterface( iface )`
+* `WiFiControl.getIfaceState()`
+
+Asynchronous
+---
+*  `WiFiControl.scanForWiFi( callback )` - this can take a while (1-10 seconds) so we use a callback to return the scan results.
+*  `WiFiControl.connectToAP( ap, callback )` - this can sometimes take several minutes so we use a callback to report on how it
+went.
+*  `WiFiControl.<span class="apidocCodeKeywordSpan">resetWiFi</span>( callback )` - powering down and back up can sometimes take
+ a while, depending on your wireless card, so this method will return your callback when it is complete.
+
+---
+
+##  Initialize
+```
+  WiFiControl.init( settings );
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
