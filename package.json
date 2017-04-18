@@ -1,1 +1,39 @@
-{     "devDependencies": {         "wifi-control": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmdoc-wifi-control",     "homepage": "https://github.com/npmdoc/node-npmdoc-wifi-control",     "repository": {         "type": "git",         "url": "https://github.com/npmdoc/node-npmdoc-wifi-control.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### api documentation for  [wifi-control (v2.0.1)](https://github.com/msolters/wifi-control-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-wifi-control.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-wifi-control) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-wifi-control.svg)](https://travis-ci.org/npmdoc/node-npmdoc-wifi-control)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha",
+        "wifi-control": "*"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-wifi-control",
+    "keywords": [
+        "documentation",
+        "wifi-control"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_wifi_control.js",
+    "name": "npmdoc-wifi-control",
+    "nameAlias": "npmdoc_wifi_control",
+    "nameOriginal": "npmdoc-wifi-control",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmdoc/node-npmdoc-wifi-control.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
