@@ -1,6 +1,6 @@
 # npmdoc-wifi-control
 
-#### api documentation for  [wifi-control (v2.0.1)](https://github.com/msolters/wifi-control-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-wifi-control.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-wifi-control) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-wifi-control.svg)](https://travis-ci.org/npmdoc/node-npmdoc-wifi-control)
+#### basic api documentation for  [wifi-control (v2.0.1)](https://github.com/msolters/wifi-control-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-wifi-control.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-wifi-control) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-wifi-control.svg)](https://travis-ci.org/npmdoc/node-npmdoc-wifi-control)
 
 #### Scan for, connect to, and disconnect from WiFi networks on Linux, MacOS and Windows.
 
@@ -69,7 +69,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "version": "2.0.1"
+    "version": "2.0.1",
+    "bin": {}
 }
 ```
 
